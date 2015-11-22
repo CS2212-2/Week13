@@ -23,6 +23,7 @@ class Exceptions
 
 	short overflow(int);
 	void vectorTest();
+	string generalExceptions(string input, string newString, int position, int length);
 
 
 

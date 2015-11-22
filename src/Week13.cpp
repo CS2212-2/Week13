@@ -40,7 +40,17 @@ int main() {
 		     //	result1= ex1.overflow(main1);
 		     	//cout<<"result is " << result1<< endl;
 
-		     	ex1.vectorTest();
+		 //    	ex1.vectorTest();
+
+		 string test ="This is a test";
+		 string test1="Department of computer science, University of New Haven";
+		 string output;
+		// output=ex1.generalExceptions(test, "ab", 1,2);
+		 //output=ex1.generalExceptions(test1, "aaaaa", 1,2); // normal output
+
+		 output=ex1.generalExceptions(test, "aaaaa", 25,2); // out of range exception
+
+		 cout << "output is.." << output << "..." << endl;
 
 	     return 0;
 	 }

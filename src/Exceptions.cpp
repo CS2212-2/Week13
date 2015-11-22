@@ -92,6 +92,7 @@ void Exceptions::vectorTest(){
 	{
 		arr.at(2);
 	}
+
 	catch (exception &err)//catch all exceptions
 	{
 		cout << "Exception happened" << endl;// user defined
@@ -99,4 +100,65 @@ void Exceptions::vectorTest(){
 
 			cerr<<"Type "<<typeid(err).name()<<endl; // built in
 	}
+
+	try {
+		    arr.at(20)=100;      // vector::at throws an out-of-range
+		  }
+		  catch (const std::out_of_range& oor) {
+		    std::cerr << "Out of Range error: " << oor.what() << '\n';
+		  }
+}
+
+string Exceptions::generalExceptions(string input, string newString, int position, int length){
+	 string newInput;
+	try {
+
+      //  string newString="abc";
+
+        newInput=input.replace (position, length, newString);
+	    }
+	    catch (std::out_of_range &e) {
+
+	        // Print out the exception string, which in this implementation
+	        // includes the location and the name of the function that threw
+	        // the exception along with the reason for the exception.
+	        std::cout << "Caught an out_of_range exception: "
+	                  << e.what () << '\n';
+	    }
+	    catch (std::runtime_error &e) {
+	    	        std::cout << "Caught a runtime_error exception: "
+	    	                  << e.what () << '\n';
+	    	    }
+	    catch (std::range_error &e) {
+	    	    	        std::cout << "Caught a range_error exception: "
+	    	    	                  << e.what () << '\n';
+	    	    	    }
+	    catch (std::domain_error &e) {
+	   	    	    	        std::cout << "Caught a domain_error exception: "
+	   	    	    	                  << e.what () << '\n';
+	   	    	    	    }
+	    catch (std::logic_error &e) {
+	    	   	    	    	        std::cout << "Caught a logic_error exception: "
+	    	   	    	    	                  << e.what () << '\n';
+	    	   	    	    	    }
+	    catch (std::length_error &e) {
+	   	    	   	    	    	        std::cout << "Caught a length_error exception: "
+	   	    	   	    	    	                  << e.what () << '\n';
+	   	    	   	    	    	    }
+	    catch (std::invalid_argument &e) {
+	   	    	   	    	    	        std::cout << "Caught an invalid argument exception: "
+	   	    	   	    	    	                  << e.what () << '\n';
+	   	    	   	    	    	    }
+	    catch (std::exception &e) {
+
+	        std::cout << "Caught an exception of an unexpected type: "
+	                  << e.what () << '\n';
+	    }
+	    catch (...) {
+	        std::cout << "Caught an unknown exception\n";
+	    }
+
+
+
+	    return newInput;
 }
