@@ -126,33 +126,57 @@ string Exceptions::generalExceptions(string input, string newString, int positio
 	                  << e.what () << '\n';
 	    }
 	    catch (std::runtime_error &e) {
-	    	        std::cout << "Caught a runtime_error exception: "
-	    	                  << e.what () << '\n';
+	     std::cout << "Caught a runtime_error exception: "
+	      << e.what () << '\n';
 	    	    }
 	    catch (std::range_error &e) {
-	    	    	        std::cout << "Caught a range_error exception: "
-	    	    	                  << e.what () << '\n';
+	      std::cout << "Caught a range_error exception: "
+	       << e.what () << '\n';
 	    	    	    }
 	    catch (std::domain_error &e) {
-	   	    	    	        std::cout << "Caught a domain_error exception: "
-	   	    	    	                  << e.what () << '\n';
+	   	  std::cout << "Caught a domain_error exception: "
+	   	    << e.what () << '\n';
 	   	    	    	    }
 	    catch (std::logic_error &e) {
-	    	   	    	    	        std::cout << "Caught a logic_error exception: "
-	    	   	    	    	                  << e.what () << '\n';
-	    	   	    	    	    }
+	       std::cout << "Caught a logic_error exception: "
+	       << e.what () << '\n';
+	       	    	    	    }
+	    catch (std::overflow_error &e) {
+	   	  std::cout << "Caught an overflow error exception: "
+	   	    << e.what () << '\n';
+	   	  	   	    	    	    }
+	    catch (std::underflow_error &e) {
+	   	    std::cout << "Caught an under flow error exception: "
+	   	    << e.what () << '\n';
+	   	    	   	    	    	    }
 	    catch (std::length_error &e) {
-	   	    	   	    	    	        std::cout << "Caught a length_error exception: "
-	   	    	   	    	    	                  << e.what () << '\n';
+	   	std::cout << "Caught a length_error exception: "
+	   	  << e.what () << '\n';
 	   	    	   	    	    	    }
+	    catch (std::bad_cast &e) {
+	       std::cout << "Caught a bad cast exception: "
+	       << e.what () << '\n';
+	    	   	    	   	    	    	    }
+	    catch (std::bad_typeid &e) {
+	        std::cout << "Caught a bad type id exception: "
+	       << e.what () << '\n';
+	    	    	   	    	   	    	    	    }
+	    catch (std::bad_alloc &e) {
+	      std::cout << "Caught a bad alloc exception: "
+	    		  << e.what () << '\n';
+	      	    	   	    	    	    }
 	    catch (std::invalid_argument &e) {
-	   	    	   	    	    	        std::cout << "Caught an invalid argument exception: "
-	   	    	   	    	    	                  << e.what () << '\n';
+	   	   std::cout << "Caught an invalid argument exception: "
+	   	    << e.what () << '\n';
 	   	    	   	    	    	    }
-	    catch (std::exception &e) {
+	    catch (std::bad_exception &e) {
 
+	      std::cout << "Caught an exception of a bad exception type: "
+	        << e.what () << '\n';
+	    	    }
+	    catch (std::exception &e) {
 	        std::cout << "Caught an exception of an unexpected type: "
-	                  << e.what () << '\n';
+                 << e.what () << '\n';
 	    }
 	    catch (...) {
 	        std::cout << "Caught an unknown exception\n";
