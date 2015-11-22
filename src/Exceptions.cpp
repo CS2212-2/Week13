@@ -11,7 +11,10 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdexcept>
+#include<string>
+#include <typeinfo>
 
+using namespace std;
 
 using namespace std;
 
@@ -26,6 +29,12 @@ void Exceptions::exception1(){
 	    cout << "An exception occurred. Exception Nr. " << e << '\n';
 	  }
 }
+
+void Exceptions::exception11(int element){
+	//int* elem;
+    if (element == NULL)
+        throw std::bad_alloc();
+}
 double Exceptions::exception2(double value, double number){
 		double result;
 
@@ -36,4 +45,58 @@ double Exceptions::exception2(double value, double number){
 	return result;
 
 }
+double Exceptions::division(int a, int b)
+{
+   if( b == 0 )
+   {
+      throw "Division by zero condition!";
+   }
+   return (a/b);
+}
+double Exceptions::exception3(double value, double number){
+	double result;
+	try {
+		result = Exceptions::division(value, number);
+	     cout << result << endl;
+	   }catch (const char* msg) {
+	     cerr << msg << endl;
+	   }
+}
 
+short Exceptions::overflow(int n){
+	short result;
+	try{
+		result=n*n*n*n*n*n*n;
+	}
+	 catch(exception &err)
+
+	{
+
+	cerr<<"Caught "<<err.what()<<endl;
+
+	cerr<<"Type "<<typeid(err).name()<<endl;
+
+	}
+	 return result;
+}
+
+void Exceptions::vectorTest(){
+	vector<int> arr;
+
+	//push two elements into vector
+	arr.push_back(4);
+	arr.push_back(7);
+
+	//try to access the third element that does not exist
+	try
+	{
+		arr.at(2);
+	}
+	catch (exception &err)//catch all exceptions
+	{
+		cout << "Exception happened" << endl;// user defined
+		cerr<<"Caught "<<err.what()<<endl; // built in
+
+			cerr<<"Type "<<typeid(err).name()<<endl; // built in
+	}
+}
